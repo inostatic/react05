@@ -1,6 +1,9 @@
 @import 'variables';
 @import 'mixins';
 
+.table__container {
+  cursor: pointer;
+}
 .tr__container {
   display: flex;
   border-top: 1px solid white;

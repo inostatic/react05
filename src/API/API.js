@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchData = (db) => {
     switch (db) {
-        case '/bigdata': {
+        case 'bd': {
             return axios.get('http://www.filltext.com/?rows=1000&' +
                 'id={number|1000}&' +
                 'firstName={firstName}&' +
@@ -13,7 +13,7 @@ export const fetchData = (db) => {
                 'address={addressObject}&' +
                 'description={lorem|32}');
         }
-        case '/smalldata': {
+        case 'sd': {
             return axios.get('http://www.filltext.com/?rows=32&' +
                 'id={number|1000}&firstName={firstName}&' +
                 'lastName={lastName}&' +

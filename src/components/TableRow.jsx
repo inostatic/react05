@@ -4,7 +4,7 @@ export const TableRow = ({id, firstName, lastName, email, phone}) => {
 
 
     return (
-            <div className="tr__container">
+            <div className="tr__container" data-item={id}>
                 <div>{id}</div>
                 <div>{firstName}</div>
                 <div>{lastName}</div>

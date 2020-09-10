@@ -20,7 +20,7 @@ html, #root, body, {
   justify-content: center;
 }
 body {
-  background: #9aca30;
+  background: #249ace;
 }
 
 .app__content {
@@ -39,11 +39,17 @@ body {
   height: 35px;
   border: none;
   cursor: pointer;
-  background: #9aca30;
+  background: #3e5977;
   color: #fafffb;
   font-size: 20px;
   font-family: Roboto;
   &:hover {
     background: #e23e42;
   }
+}
+
+.button.disabled {
+  background: #ddd4ea;
+  color: #fafffb;
+
 }

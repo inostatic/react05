@@ -1,10 +1,12 @@
 import {combineReducers, compose, createStore, applyMiddleware} from "redux";
 import thunk from "redux-thunk";
 import {data} from "./reducers/data";
+import {select} from "./reducers/select";
 
 
 let rootReducer = combineReducers({
-    data
+    data,
+    select
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

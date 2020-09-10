@@ -1,15 +1,21 @@
 import React from "react"
 
-export const SelectedRow = () => {
+export const SelectedRow = ({firstName, lastName, description, address}) => {
 
     return (
-        <div className="info__container">
-            <div>Выбран пользователь: <strong>Carlo Absalom</strong></div>
-            <div>Описание: <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ducimus excepturi harum laboriosam sint! Alias aperiam dignissimos esse ex excepturi laudantium obcaecati repellat reprehenderit saepe sequi? A ducimus nemo sit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, omnis.</strong></div>
-            <div>Адрес проживания: <strong>8345 Pulvinar Rd</strong></div>
-            <div>Город: <strong>Pittsburg</strong></div>
-            <div>Провинция/штат: <strong>AL</strong></div>
-            <div>Индекс: <strong>32551</strong></div>
-        </div>
+        <>
+            {
+                address &&
+                <div className="info__container">
+                    <div>Выбран пользователь: <strong>{firstName} {lastName}</strong></div>
+                    <div>Описание: <strong>{description}</strong></div>
+                    <div>Адрес проживания: <strong>{address.streetAddress}</strong></div>
+                    <div>Город: <strong>{address.city}</strong></div>
+                    <div>Провинция/штат: <strong>{address.state}</strong></div>
+                    <div>Индекс: <strong>{address.zip}</strong></div>
+                </div>
+            }
+        </>
     )
 }
+

@@ -6,30 +6,38 @@ import {TableRow} from "../components/TableRow";
 import {Search} from "../components/Search";
 import {SelectedRow} from "../components/SelectedRow";
 import {useDispatch, useSelector} from "react-redux";
-import {getData} from "../redux/action/data";
+import {getData, selectedItemAC} from "../redux/action/data";
 
-export const Home = () => {
+export const Home = ({select}) => {
 
     const dispatch = useDispatch()
-    const items = useSelector(({ data }) => data.data)
+    const items = useSelector(({data}) => data.items)
+    const selectedRow = useSelector(({data}) => data.selectedRow)
 
     useEffect(() => {
-        dispatch(getData('/smalldata'))
-    },[])
+        dispatch(getData(select))
+    }, [select])
 
-    console.log(items)
+    const selectedItem = (event) => {
+        let node = event.target.dataset.item || event.target.parentNode.dataset.item
+        if (node) {
+            dispatch(selectedItemAC(node))
+        }
+    }
 
     return (
         <>
             <Form/>
             <Pagination/>
             <TableHeader/>
-            {items &&
-            items.map(item => <TableRow {...item} />)
-
-            }
+            <div className="table__container" onClick={selectedItem}>
+                {
+                    items &&
+                    items.map((item, index) => <TableRow key={index} {...item} />)
+                }
+            </div>
             <Search/>
-            <SelectedRow/>
+            <SelectedRow {...selectedRow}/>
         </>
     )
 }
