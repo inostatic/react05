@@ -1,0 +1,49 @@
+@import 'variables';
+@import 'mixins';
+
+@import 'form';
+@import 'header';
+@import 'pagination';
+@import 'search';
+@import 'selectedRow';
+@import 'tableHeader';
+@import 'tableRow';
+
+html, #root, body, {
+  height: 98%;
+}
+
+
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+body {
+  background: #9aca30;
+}
+
+.app__content {
+  margin: 30px 0;
+  padding: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  background: #fafbf8;
+
+}
+
+.button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  background: #9aca30;
+  color: #fafffb;
+  font-size: 20px;
+  font-family: Roboto;
+  &:hover {
+    background: #e23e42;
+  }
+}

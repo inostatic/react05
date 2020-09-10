@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+.pagination__container {
+  height: 30px;
+  background: #2980b9;
+  color: white;
+  padding: 5px 0 0 10px;
+  box-sizing: border-box;
+}

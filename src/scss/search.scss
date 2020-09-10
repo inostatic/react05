@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+.search__container {
+  display: flex;
+  border-top: 1px solid white;
+  input {
+    width: 87%;
+  }
+}

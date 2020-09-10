@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.tr__container {
+  display: flex;
+  border-top: 1px solid white;
+
+  div {
+    width: 20%;
+    background: #5b7898;
+    height: 25px;
+    padding: 5px 0 0 10px;
+    color: white;
+    border-right: 1px solid white;
+    font-size: 18px;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

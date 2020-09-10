@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'mixins';
+
+.info__container {
+  div {
+    padding: 5px 10px;
+    background: #2980b9;
+    border-top: 1px solid white;
+    color: white;
+    strong {
+      color: gold;
+    }
+  }
+}
