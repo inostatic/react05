@@ -7,12 +7,16 @@ import {Search} from "../components/Search";
 import {SelectedRow} from "../components/SelectedRow";
 import {useDispatch, useSelector} from "react-redux";
 import {getData, selectedItemAC} from "../redux/action/data";
+import {Loader} from "../components/Loader";
 
 export const Home = ({select}) => {
 
     const dispatch = useDispatch()
-    const items = useSelector(({data}) => data.items)
-    const selectedRow = useSelector(({data}) => data.selectedRow)
+    const {items, selectedRow, isLoaded} = useSelector(({data}) => ({
+        items: data.items,
+        selectedRow: data.selectedRow,
+        isLoaded: data.isLoaded
+    }))
 
     useEffect(() => {
         dispatch(getData(select))
@@ -24,20 +28,25 @@ export const Home = ({select}) => {
             dispatch(selectedItemAC(node))
         }
     }
-
+    console.log(isLoaded)
     return (
         <>
-            <Form/>
-            <Pagination/>
-            <TableHeader/>
-            <div className="table__container" onClick={selectedItem}>
-                {
-                    items &&
-                    items.map((item, index) => <TableRow key={index} {...item} />)
-                }
-            </div>
-            <Search/>
-            <SelectedRow {...selectedRow}/>
+            {!isLoaded && <Loader/>}
+            {isLoaded &&
+            <>
+                <Form/>
+                <Pagination/>
+                <TableHeader/>
+                <div className="table__container" onClick={selectedItem}>
+                    {
+                        items &&
+                        items.map((item, index) => <TableRow key={index} {...item} />)
+                    }
+                </div>
+                <Search/>
+                <SelectedRow {...selectedRow}/>
+            </>
+            }
         </>
     )
 }

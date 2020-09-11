@@ -1,13 +1,15 @@
-import {SELECTED_ROW, SEND_FORM, SET_DATA, SET_PAGINATION} from "../reducers/data";
+import {DATA_SORT, SELECTED_ROW, SEND_FORM, SET_DATA, SET_PAGINATION, DATA_SEARCH, SET_LOADING} from "../reducers/data";
 import {fetchData} from "../../API/API";
 
 export const getData = (db) => async (dispatch) => {
+    dispatch(setLoaderAC())
     const data = await fetchData(db)
     await dispatch(setDataAC(data.data))
     await dispatch(setItemAC())
 
 }
 
+export const setLoaderAC = () => ({type: SET_LOADING})
 
 export const setDataAC = (payload) => ({
     type: SET_DATA,
@@ -26,5 +28,15 @@ export const selectedItemAC = (payload) => ({
 
 export const sendFormAc = (payload) => ({
     type: SEND_FORM,
+    payload
+})
+
+export const sortByAC = (payload) => ({
+    type: DATA_SORT,
+    payload
+})
+
+export const searchByStrAC = (payload) => ({
+    type: DATA_SEARCH,
     payload
 })

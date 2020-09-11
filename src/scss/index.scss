@@ -1,5 +1,5 @@
 @import 'variables';
-@import 'mixins';
+
 
 @import 'form';
 @import 'header';
@@ -13,14 +13,15 @@ html, #root, body, {
   height: 98%;
 }
 
-
-
 #root {
   display: flex;
   justify-content: center;
 }
 body {
   background: #249ace;
+  font-family: Calluna;
+  font-size: 16px;
+
 }
 
 .app__content {
@@ -30,8 +31,15 @@ body {
   width: 1200px;
   display: flex;
   flex-direction: column;
-  background: #fafbf8;
+  background: $color_3;
 
+}
+
+button:focus {
+  outline: none;
+}
+button:active {
+  color: $color_1;
 }
 
 .button {
@@ -39,8 +47,8 @@ body {
   height: 35px;
   border: none;
   cursor: pointer;
-  background: #3e5977;
-  color: #fafffb;
+  background: $color_2;
+  color: $color_3;
   font-size: 20px;
   font-family: Roboto;
   &:hover {
@@ -49,7 +57,11 @@ body {
 }
 
 .button.disabled {
-  background: #ddd4ea;
-  color: #fafffb;
+  background: rgba(62, 89, 119, 0.3);
 
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
 }

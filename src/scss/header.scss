@@ -1,22 +1,26 @@
 @import 'variables';
-@import 'mixins';
+
 
 .header__container {
   display: flex;
   width: 100%;
   align-items: center;
-  border: 1px solid #8b8b8b;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
   .header__title {
     padding-left: 10px;
     width: 50%;
     text-align: left;
-    font-size: 20px;
-    font-family: Roboto;
+    font-size: 22px;
+    font-family: Calluna;
   }
   .header__buttons {
     display: flex;
     justify-content: flex-end;
     width: 50%;
+    button:focus {
+      color: $color_1;
+    }
     button:first-child {
       border-right: 1px solid #8b8b8b;
     }

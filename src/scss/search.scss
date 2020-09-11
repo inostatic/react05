@@ -1,10 +1,17 @@
 @import 'variables';
-@import 'mixins';
+
 
 .search__container {
+  margin-top: 10px;
   display: flex;
-  border-top: 1px solid white;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+
   input {
-    width: 87%;
+    width: 88%;
+    border: none;
+
+
   }
 }
