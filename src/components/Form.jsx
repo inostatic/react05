@@ -28,10 +28,10 @@ export const Form = () => {
 
 
     function sendForm() {
-        console.log('sendForm')
         return () => {
             dispatch(sendFormAc({
-                id, firstName, lastName, email, phone
+                id: +id,
+                firstName, lastName, email, phone
             }))
         }
     }
@@ -83,8 +83,6 @@ export const Form = () => {
             {!form &&
             <div className="form__title"><Button text={'Открыть форму'}  onClick={openCloseForm}/></div>
             }
-
-
         </div>
     )
 }

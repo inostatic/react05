@@ -2,11 +2,14 @@ import {DATA_SORT, SELECTED_ROW, SEND_FORM, SET_DATA, SET_PAGINATION, DATA_SEARC
 import {fetchData} from "../../API/API";
 
 export const getData = (db) => async (dispatch) => {
-    dispatch(setLoaderAC())
-    const data = await fetchData(db)
-    await dispatch(setDataAC(data.data))
-    await dispatch(setItemAC())
-
+    try {
+        dispatch(setLoaderAC())
+        const data = await fetchData(db)
+        await dispatch(setDataAC(data.data))
+        await dispatch(setItemAC())
+    } catch (e) {
+        throw new Error(e)
+    }
 }
 
 export const setLoaderAC = () => ({type: SET_LOADING})

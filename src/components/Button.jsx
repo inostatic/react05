@@ -1,7 +1,9 @@
 import React, {createRef, useEffect} from "react"
+import PropTypes from 'prop-types';
 
 export const Button = ({text, onClick, btnBlock}) => {
     const btn = createRef()
+
 
     useEffect(() => {
         if (btnBlock) {
@@ -16,4 +18,16 @@ export const Button = ({text, onClick, btnBlock}) => {
             {text}
         </button>
     )
+}
+
+Button.defaultProps = {
+    btnBlock: null,
+    text: 'Добавить',
+    onClick: () => {console.log('the behavior is undefined')}
+}
+
+Button.propTypes = {
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+    btn: PropTypes.bool
 }

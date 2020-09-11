@@ -21,7 +21,7 @@ export const Search = () => {
                 value={searchString}
             />
             <Button
-                text={'Поиск'}
+                text={'Найти'}
                 onClick={sendSearchString()}
             />
         </div>

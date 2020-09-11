@@ -11,7 +11,6 @@ export const Header = () => {
     }
 
     function changeData(db) {
-        console.log('changeData')
         return () => {
             dispatch(selectAC(db))
         }

@@ -28,7 +28,7 @@ export const Home = ({select}) => {
             dispatch(selectedItemAC(node))
         }
     }
-    console.log(isLoaded)
+
     return (
         <>
             {!isLoaded && <Loader/>}

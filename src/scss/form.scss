@@ -2,50 +2,52 @@
 
 
 .form__container {
+  .form__title {
+    padding: 5px 0;
 
-}
+    button {
+      font-size: 16px;
+    }
+  }
 
-.form__title {
-  padding: 5px 0;
-  button {
-    font-size: 16px;
+  .form__headers {
+    display: flex;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+
+    .header__item {
+      width: 20%;
+      height: 24px;
+      background: $color_2;
+      padding: 5px 0 0 10px;
+      border-right: 1px solid;
+      color: #fafbf8;
+      font-family: Roboto;
+      font-size: 18px;
+
+    }
+
+    .header__item:last-child {
+      border-right: none;
+    }
+  }
+
+  .form__inputs {
+    input {
+      width: 20%;
+      box-sizing: border-box;
+      height: 25px;
+    }
+
+  }
+
+  .form__buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin: 5px 0;
+    }
   }
 }
 
-.form__headers {
-  display: flex;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-
-
-  .header__item {
-    width: 20%;
-    height: 24px;
-    background: #8fb8ca;
-    padding: 5px 0 0 10px;
-    border-right: 1px solid;
-    color: #fafbf8;
-    font-family: Roboto;
-    font-size: 18px;
-
-  }
-  .header__item:last-child {
-    border-right: none;
-  }
-}
-
-.form__inputs {
-  input {
-    width: 20%;
-    box-sizing: border-box;
-    height: 25px;
-  }
-
-}
-
-.form__buttons {
-  display: flex;
-  justify-content: flex-end;
-  button {
-    margin: 5px 0;
-  }
-}

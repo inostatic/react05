@@ -22,5 +22,6 @@ export const fetchData = (db) => {
                 'address={addressObject}&' +
                 'description={lorem|32}');
         }
+        default: throw new Error('Error API')
     }
 }

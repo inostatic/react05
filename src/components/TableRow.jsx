@@ -1,7 +1,8 @@
 import React from "react"
+import PropTypes from "prop-types";
+
 
 export const TableRow = ({id, firstName, lastName, email, phone}) => {
-
 
     return (
             <div className="tr__container" data-item={id}>
@@ -12,4 +13,13 @@ export const TableRow = ({id, firstName, lastName, email, phone}) => {
                 <div>{phone}</div>
             </div>
     )
+}
+
+
+TableRow.propTypes = {
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    id: PropTypes.number
 }

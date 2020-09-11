@@ -1,11 +1,13 @@
 import React from "react"
+import PropTypes from "prop-types";
+
 
 export const SelectedRow = ({firstName, lastName, description, address}) => {
 
     return (
         <>
             {
-                address &&
+                firstName &&
                 <div className="info__container">
                     <div>Выбран пользователь: <strong>{firstName} {lastName}</strong></div>
                     <div>Описание: <strong>{description}</strong></div>
@@ -19,3 +21,19 @@ export const SelectedRow = ({firstName, lastName, description, address}) => {
     )
 }
 
+SelectedRow.defaultProps = {
+    address: {
+        streetAddress: '',
+        city: '',
+        state: '',
+        zip: ''
+    },
+    description: '',
+}
+
+SelectedRow.propTypes = {
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    description: PropTypes.string,
+    address: PropTypes.object
+}

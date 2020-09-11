@@ -6,7 +6,8 @@
   width: 100%;
   align-items: center;
   border: 1px solid #bdbdbd;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
   .header__title {
     padding-left: 10px;
     width: 50%;
@@ -14,16 +15,20 @@
     font-size: 22px;
     font-family: Calluna;
   }
+
   .header__buttons {
     display: flex;
     justify-content: flex-end;
     width: 50%;
+
     button:focus {
       color: $color_1;
     }
+
     button:first-child {
       border-right: 1px solid #8b8b8b;
     }
+
     button:last-child {
       border-left: 1px solid #8b8b8b;
     }

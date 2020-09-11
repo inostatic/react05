@@ -13,7 +13,6 @@ let initialState = {
     countItem: 50,
     currentPage: 1,
     countPages: 0,
-
     selectedRow: null,
     isLoaded: false
 }
@@ -22,7 +21,8 @@ const sortByKey = (key, data) => {
     return data.sort((prev, next) => {
         if (prev[key] < next[key]) return -1;
         if (prev[key] < next[key]) return 1;
-    });
+        return undefined
+    })
 }
 
 const searchByString = (data, str) => {
@@ -98,7 +98,7 @@ export const data = (state = initialState, action) => {
         case DATA_SEARCH:
             if (action.payload === '') {
                 items = state.dataReserve.slice(0, 50)
-                countPages =  countPages = Math.ceil(state.dataReserve.length / state.countItem)
+                countPages = countPages = Math.ceil(state.dataReserve.length / state.countItem)
                 return {
                     ...state,
                     items,

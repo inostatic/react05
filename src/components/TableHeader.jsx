@@ -14,6 +14,7 @@ export const TableHeader = () => {
         phone: {el: before, flag: false}
     }
     const [sortItem, setSortItem] = useState(initialState)
+
     const sortChangeGraphElem = key => {
         const el = after
         const flag = !sortItem[key].flag

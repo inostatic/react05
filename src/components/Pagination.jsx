@@ -20,7 +20,7 @@ export const Pagination = () => {
     return (
         <div className="pagination__container" onClick={setPage}>
             {pagination &&
-                pagination.map((e, i) => <div className={currentPage == i + e ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>)
+                pagination.map((e, i) => <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>)
             }
         </div>
     )

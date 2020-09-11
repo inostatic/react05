@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 @import 'form';
 @import 'header';
 @import 'pagination';
@@ -17,9 +16,10 @@ html, #root, body, {
   display: flex;
   justify-content: center;
 }
+
 body {
-  background: #249ace;
-  font-family: Calluna;
+  background: #d7cfa8;
+  font-family: Arial;
   font-size: 16px;
 
 }
@@ -27,7 +27,7 @@ body {
 .app__content {
   margin: 30px 0;
   padding: 50px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   width: 1200px;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@ body {
 button:focus {
   outline: none;
 }
+
 button:active {
   color: $color_1;
 }
@@ -51,6 +52,7 @@ button:active {
   color: $color_3;
   font-size: 20px;
   font-family: Roboto;
+
   &:hover {
     background: #e23e42;
   }
@@ -64,4 +66,5 @@ button:active {
 .loader {
   display: flex;
   justify-content: center;
+  margin-top: 25px;
 }

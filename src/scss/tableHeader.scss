@@ -3,20 +3,21 @@
 
 .th_container {
   display: flex;
+  border: 2px solid rgba(0, 0, 0, 0.5);
   border-top: 1px solid white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
   background: #8fb8ca;
+
   div {
+    font-weight: bold;
     width: 20%;
-    //background: $color_2;
     height: 25px;
     padding: 5px 0 0 10px;
-    //color: $color_3;
     border-right: 1px solid $color_3;
 
     &:last-child {
       border-right: none;
     }
+
     &:hover {
       color: $color_1;
       cursor: pointer;
