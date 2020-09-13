@@ -1,5 +1,5 @@
 import React, {createRef, useEffect} from "react"
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 export const Button = ({text, onClick, btnBlock}) => {
     const btn = createRef()

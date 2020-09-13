@@ -1,5 +1,5 @@
-import {DATA_SORT, SELECTED_ROW, SEND_FORM, SET_DATA, SET_PAGINATION, DATA_SEARCH, SET_LOADING} from "../reducers/data";
-import {fetchData} from "../../API/API";
+import {DATA_SORT, SELECTED_ROW, SEND_FORM, SET_DATA, SET_PAGINATION, DATA_SEARCH, SET_LOADING} from "../reducers/data"
+import {fetchData} from "../../API/API"
 
 export const getData = (db) => async (dispatch) => {
     try {

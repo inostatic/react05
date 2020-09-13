@@ -1,15 +1,13 @@
 import React, {useState} from "react"
 import {Button} from "./Button";
-import {useDispatch} from "react-redux";
-import {searchByStrAC} from "../redux/action/data";
+import PropTypes from "prop-types";
 
-export const Search = () => {
-    const dispatch = useDispatch()
+export const Search = ({searchByString}) => {
     const [searchString, setSearchString] = useState('')
 
     function sendSearchString() {
         return () => {
-            dispatch(searchByStrAC(searchString))
+            searchByString(searchString)
         }
     }
 
@@ -26,4 +24,8 @@ export const Search = () => {
             />
         </div>
     )
+}
+
+Search.propTypes = {
+    searchByString: PropTypes.func.isRequired
 }

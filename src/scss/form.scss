@@ -10,35 +10,35 @@
     }
   }
 
-  .form__headers {
+  .form-item__container {
     display: flex;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 
-
-    .header__item {
+    .form__item {
       width: 20%;
-      height: 24px;
-      background: $color_2;
-      padding: 5px 0 0 10px;
-      border-right: 1px solid;
-      color: #fafbf8;
-      font-family: Roboto;
-      font-size: 18px;
+      display: flex;
+      flex-direction: column;
 
+      .item__title {
+        background: $color_2;
+        padding: 5px 0 5px 15px;
+        color: #fafbf8;
+        font-family: Roboto;
+        font-size: 16px;
+
+      }
+
+      input {
+        box-sizing: border-box;
+        height: 28px;
+        border: 1px solid;
+      }
     }
 
-    .header__item:last-child {
-      border-right: none;
+    .form__item:last-child {
+      .item__title {
+        border-right: $color_2;
+      }
     }
-  }
-
-  .form__inputs {
-    input {
-      width: 20%;
-      box-sizing: border-box;
-      height: 25px;
-    }
-
   }
 
   .form__buttons {

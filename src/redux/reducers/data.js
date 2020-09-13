@@ -37,9 +37,10 @@ const searchByString = (data, str) => {
     })
 }
 
+const getCountPages = (data, countItem) => Math.ceil(data.length / countItem)
+const getItems = (data, currentPage, countItem) => data.slice((currentPage - 1) * countItem, currentPage * countItem)
+
 export const data = (state = initialState, action) => {
-    let countPages
-    let items
     switch (action.type) {
         case SET_LOADING:
             return {
@@ -52,36 +53,36 @@ export const data = (state = initialState, action) => {
                 ...state,
                 data: action.payload,
                 dataReserve: action.payload,
+                currentPage: 1,
                 isLoaded: true
             }
+
         case SET_PAGINATION:
             const currentPage = action.payload || state.currentPage
-            countPages = Math.ceil(state.data.length / state.countItem)
-            items = state.data.slice((currentPage - 1) * state.countItem, currentPage * state.countItem)
-
             return {
                 ...state,
-                countPages,
-                items,
-                currentPage
+                currentPage: +currentPage,
+                countPages: getCountPages(state.data, state.countItem),
+                items: getItems(state.data, currentPage, state.countItem)
             }
+
         case SELECTED_ROW:
             const selectedRow = state.items.find((item) => +item.id === +action.payload)
             return {
                 ...state,
                 selectedRow
             }
+
         case SEND_FORM:
             const data = [action.payload, ...state.data]
-            countPages = Math.ceil(data.length / state.countItem)
-            items = data.slice((state.currentPage - 1) * state.countItem, state.currentPage * state.countItem)
             return {
                 ...state,
                 data,
-                dataReserve: [action.payload, ...state.dataReserve],
-                items,
-                countPages
+                items: getItems(data, state.currentPage, state.countItem),
+                countPages: getCountPages(data, state.countItem),
+                dataReserve: [action.payload, ...state.dataReserve]
             }
+
         case DATA_SORT:
             const key = action.payload.key
             let newData
@@ -89,36 +90,31 @@ export const data = (state = initialState, action) => {
                 ? newData = sortByKey(key, state.data).reverse()
                 : newData = sortByKey(key, state.data)
 
-            items = newData.slice((state.currentPage - 1) * state.countItem, state.currentPage * state.countItem)
             return {
                 ...state,
                 data: newData,
-                items
+                items: getItems(newData, state.currentPage, state.countItem)
             }
+
         case DATA_SEARCH:
             if (action.payload === '') {
-                items = state.dataReserve.slice(0, 50)
-                countPages = countPages = Math.ceil(state.dataReserve.length / state.countItem)
                 return {
                     ...state,
-                    items,
+                    items: getItems(state.dataReserve, 1, state.countItem),
                     currentPage: 1,
                     data: state.dataReserve,
-                    countPages
+                    countPages: getCountPages(state.dataReserve, state.countItem),
                 }
             }
             const searchData = searchByString(state.dataReserve, action.payload.toLowerCase())
-            items = searchData.slice(0, 50)
-            countPages = Math.ceil(searchData.length / state.countItem)
             return {
                 ...state,
                 data: searchData,
-                items,
+                items: getItems(searchData, 1, state.countItem),
                 currentPage: 1,
-                countPages
+                countPages: getCountPages(searchData, state.countItem)
 
             }
-
         default:
             return state
     }

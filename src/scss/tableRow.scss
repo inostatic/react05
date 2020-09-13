@@ -16,14 +16,14 @@
 
     &:nth-child(even) {
       div {
-        background: $color_3;
+        background: #d4d8c6;
       }
     }
 
     div {
       width: 20%;
       font-family: Arial;
-      background: #d4d8c6;
+      background: $color_3;
       height: 25px;
       padding: 5px 0 0 10px;
       color: black;
