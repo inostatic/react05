@@ -1,6 +1,6 @@
 import React, {useState} from "react"
-import {useDispatch} from "react-redux";
-import {sortByAC} from "../redux/action/data";
+import {useDispatch} from "react-redux"
+import {sortByAC} from "../redux/action/data"
 
 
 export const TableHeader = () => {

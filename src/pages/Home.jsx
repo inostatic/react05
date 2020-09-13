@@ -6,16 +6,17 @@ import {TableRow} from "../components/TableRow";
 import {Search} from "../components/Search";
 import {SelectedRow} from "../components/SelectedRow";
 import {useDispatch, useSelector} from "react-redux";
-import {getData, selectedItemAC} from "../redux/action/data";
+import {getData, searchByStrAC, selectedItemAC, sendFormAc, setItemAC} from "../redux/action/data";
 import {Loader} from "../components/Loader";
 
 export const Home = ({select}) => {
-
     const dispatch = useDispatch()
-    const {items, selectedRow, isLoaded} = useSelector(({data}) => ({
+    const {items, selectedRow, isLoaded, countPages, currentPage} = useSelector(({data}) => ({
         items: data.items,
         selectedRow: data.selectedRow,
-        isLoaded: data.isLoaded
+        isLoaded: data.isLoaded,
+        countPages: data.countPages,
+        currentPage: data.currentPage
     }))
 
     useEffect(() => {
@@ -29,13 +30,30 @@ export const Home = ({select}) => {
         }
     }
 
+
+    const searchByString = React.useCallback((str) => {
+        dispatch(searchByStrAC(str))
+    }, [])
+
+    const changeCurrentPage = React.useCallback((str_id) => {
+        dispatch(setItemAC(str_id))
+    }, [])
+
+    const sendForm = React.useCallback((obj) => {
+        dispatch(sendFormAc(obj))
+    }, [])
+
     return (
         <>
             {!isLoaded && <Loader/>}
             {isLoaded &&
             <>
-                <Form/>
-                <Pagination/>
+                <Form sendForm={sendForm} />
+                <Pagination
+                currentPage={currentPage}
+                countPages={countPages}
+                changeCurrentPage={changeCurrentPage}
+                />
                 <TableHeader/>
                 <div className="table__container" onClick={selectedItem}>
                     {
@@ -43,7 +61,7 @@ export const Home = ({select}) => {
                         items.map((item, index) => <TableRow key={index} {...item} />)
                     }
                 </div>
-                <Search/>
+                <Search searchByString={searchByString} />
                 <SelectedRow {...selectedRow}/>
             </>
             }

@@ -5,3 +5,33 @@
 5. Фильтрация+
 6. Поиск
 7. Индикация загрузки
+
+// result.length > 6
+//     ? result.map((e, i) => {
+//         i < 3 ? console.log(e + i)
+//             : i === 3 ? console.log('...')
+//             : i < countPages && i > countPages - 4 ? console.log(e + i)
+//                 : null
+//     })
+//     : result.map((e, i) => console.log(e + i))
+
+
+// {pagination &&
+// pagination.map((e, i) => <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>)
+// }
+
+// <div data-left={true}>«</div>
+// {pagination.map((e, i) => <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>)}
+// <div data-right={true}>»</div>
+
+
+// pagination.length > 6
+//     ? pagination.map((e, i) => {
+//         return (
+//             i < 3 ? <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>
+//                 : i === 3 ? <div>...</div>
+//                 : i < countPages && i > countPages - 4 ? <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>
+//                     : ''
+//         )
+//     })
+//     : pagination.map((e, i) => <div className={+currentPage === +(i + e) ? 'selected' : ''} key={i} data-num={i + e}>{i + e}</div>)
