@@ -1,13 +1,13 @@
 import React, {useEffect} from "react"
-import {Form} from "../components/Form";
-import {Pagination} from "../components/Pagination";
-import {TableHeader} from "../components/TableHeader";
-import {TableRow} from "../components/TableRow";
-import {Search} from "../components/Search";
-import {SelectedRow} from "../components/SelectedRow";
-import {useDispatch, useSelector} from "react-redux";
-import {getData, searchByStrAC, selectedItemAC, sendFormAc, setItemAC} from "../redux/action/data";
-import {Loader} from "../components/Loader";
+import {Form} from "../components/Form"
+import {Pagination} from "../components/Pagination"
+import {TableHeader} from "../components/TableHeader"
+import {TableRow} from "../components/TableRow"
+import {Search} from "../components/Search"
+import {SelectedRow} from "../components/SelectedRow"
+import {useDispatch, useSelector} from "react-redux"
+import {getData, searchByStrAC, selectedItemAC, sendFormAc, setItemAC, sortByAC} from "../redux/action/data"
+import {Loader} from "../components/Loader"
 
 export const Home = ({select}) => {
     const dispatch = useDispatch()
@@ -43,6 +43,10 @@ export const Home = ({select}) => {
         dispatch(sendFormAc(obj))
     }, [])
 
+    const sortByKey = React.useCallback((key) => {
+        dispatch(sortByAC(key))
+    }, [])
+
     return (
         <>
             {!isLoaded && <Loader/>}
@@ -54,7 +58,7 @@ export const Home = ({select}) => {
                 countPages={countPages}
                 changeCurrentPage={changeCurrentPage}
                 />
-                <TableHeader/>
+                <TableHeader sortByKey={sortByKey}/>
                 <div className="table__container" onClick={selectedItem}>
                     {
                         items &&

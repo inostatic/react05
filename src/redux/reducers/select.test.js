@@ -1,5 +1,5 @@
-import {select} from "./select";
-import {selectAC} from "../action/select";
+import {select} from "./select"
+import {selectAC} from "../action/select"
 
 
 test('should return the database name', () => {

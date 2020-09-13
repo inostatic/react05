@@ -1,5 +1,5 @@
-import {data} from "./data";
-import {searchByStrAC, selectedItemAC, sendFormAc, setDataAC, setItemAC, setLoaderAC, sortByAC} from "../action/data";
+import {data} from "./data"
+import {searchByStrAC, selectedItemAC, sendFormAc, setDataAC, setItemAC, setLoaderAC, sortByAC} from "../action/data"
 
 let initialState = {
     data: [],

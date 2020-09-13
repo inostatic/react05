@@ -1,6 +1,6 @@
 import React, {useState} from "react"
-import {Button} from "./Button";
-import PropTypes from "prop-types";
+import {Button} from "./Button"
+import PropTypes from "prop-types"
 
 export const Search = ({searchByString}) => {
     const [searchString, setSearchString] = useState('')

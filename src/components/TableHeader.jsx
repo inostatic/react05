@@ -1,10 +1,7 @@
 import React, {useState} from "react"
-import {useDispatch} from "react-redux"
-import {sortByAC} from "../redux/action/data"
 
 
-export const TableHeader = () => {
-    const dispatch = useDispatch()
+export const TableHeader = ({sortByKey}) => {
     const [before, after] = ['▼', '▲']
     const initialState = {
         id: {el: before, flag: false},
@@ -29,10 +26,10 @@ export const TableHeader = () => {
     function sortBy(key) {
         return () => {
             sortChangeGraphElem(key)
-            dispatch(sortByAC({
+            sortByKey({
                 key,
                 flag: sortItem[key].flag
-            }))
+            })
         }
     }
 

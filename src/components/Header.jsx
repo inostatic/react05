@@ -1,7 +1,7 @@
 import React from "react"
-import {Button} from "./Button";
-import {useDispatch} from "react-redux";
-import {selectAC} from "../redux/action/select";
+import {Button} from "./Button"
+import {useDispatch} from "react-redux"
+import {selectAC} from "../redux/action/select"
 
 export const Header = () => {
     const dispatch = useDispatch()
